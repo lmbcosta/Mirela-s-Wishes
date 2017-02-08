@@ -20,8 +20,14 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        if let navBar = self.navigationController?.navigationBar {
+            let color = UIColor(colorLiteralRed: 63/255, green: 25/255, blue: 1/255, alpha: 1)
+            navBar.titleTextAttributes = [NSForegroundColorAttributeName: color]
+        }
+        
         // Running testData func
-        testData()
+        //testData()
         // attempt to fetch
         tryToFetch()
     }
@@ -130,6 +136,15 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         return result
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let gift = fetchedController.object(at: indexPath)
+        
+        performSegue(withIdentifier: "GiftEditVC", sender: gift)
+    }
+    
+    
+    
+    
     
     // Get the Item  and config the cell
     func configCell(cell: GiftCell, indexPath: NSIndexPath) {
@@ -139,6 +154,21 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         // Update cell information
         cell.updateCell(gift: gift)
     }
+    
+    // Function to prepare Segue to edit gift
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "GiftEditVC" {
+            if let destination = segue.destination as? GiftDetailsVC {
+                let gift = sender as? Gift
+                destination.gift = gift
+            }
+        }
+    }
+    
+    
+    
+
     
     // Function to test data
     func testData() {

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		498BB6351E4B939600EB097B /* GiftDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BB6341E4B939600EB097B /* GiftDetailsVC.swift */; };
 		499BB8341E4A81460033E3CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BB8331E4A81460033E3CB /* AppDelegate.swift */; };
 		499BB8361E4A81460033E3CB /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BB8351E4A81460033E3CB /* MainVC.swift */; };
 		499BB8391E4A81460033E3CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 499BB8371E4A81460033E3CB /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		498BB6341E4B939600EB097B /* GiftDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftDetailsVC.swift; sourceTree = "<group>"; };
 		499BB8301E4A81460033E3CB /* Mirela's Wishes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mirela's Wishes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		499BB8331E4A81460033E3CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		499BB8351E4A81460033E3CB /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				499BB8351E4A81460033E3CB /* MainVC.swift */,
+				498BB6341E4B939600EB097B /* GiftDetailsVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 			files = (
 				499BB83C1E4A81460033E3CB /* Mirela_s_Wishes.xcdatamodeld in Sources */,
 				499BB8561E4A8E810033E3CB /* Gift+CoreDataProperties.swift in Sources */,
+				498BB6351E4B939600EB097B /* GiftDetailsVC.swift in Sources */,
 				499BB85B1E4A8E810033E3CB /* Type+CoreDataClass.swift in Sources */,
 				499BB8361E4A81460033E3CB /* MainVC.swift in Sources */,
 				499BB8551E4A8E810033E3CB /* Gift+CoreDataClass.swift in Sources */,
@@ -374,6 +378,7 @@
 				499BB8471E4A81460033E3CB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
