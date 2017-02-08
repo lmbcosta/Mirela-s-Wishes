@@ -20,7 +20,9 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
+        // Running testData func
+        testData()
+        // attempt to fetch
         tryToFetch()
     }
     
@@ -136,6 +138,26 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         
         // Update cell information
         cell.updateCell(gift: gift)
+    }
+    
+    // Function to test data
+    func testData() {
+        let gift1 = Gift(context: context)
+        gift1.title = "Mala Guess"
+        gift1.price = 150
+        gift1.details = "Preciso uma de cor azul"
+        
+        let gift2 = Gift(context: context)
+        gift2.title = "iMac 27\""
+        gift2.price = 2400
+        gift2.details = "O meu desktop favorito. fica a matar na minha secretária"
+        
+        let gift3 = Gift(context: context)
+        gift3.title = "Nike Running Pink"
+        gift3.price = 100
+        gift3.details = "Preciso de uns novos porque não gosto dos que o meu namorado me ofereceu"
+        
+        ad.saveContext()
     }
     
 }

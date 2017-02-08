@@ -5,24 +5,26 @@
         <attribute name="importance" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" syncable="YES"/>
-        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" syncable="YES"/>
-        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Type" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="gift" inverseEntity="Photo" syncable="YES"/>
+        <relationship name="shop" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Shop" inverseName="gift" inverseEntity="Shop" syncable="YES"/>
+        <relationship name="type" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Type" inverseName="gift" inverseEntity="Type" syncable="YES"/>
     </entity>
     <entity name="Photo" representedClassName=".Photo" syncable="YES">
         <attribute name="photo" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="gift" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gift" inverseName="photo" inverseEntity="Gift" syncable="YES"/>
     </entity>
     <entity name="Shop" representedClassName=".Shop" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="type" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Type" syncable="YES"/>
+        <relationship name="gift" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Gift" inverseName="shop" inverseEntity="Gift" syncable="YES"/>
     </entity>
     <entity name="Type" representedClassName=".Type" syncable="YES">
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="gift" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Gift" inverseName="type" inverseEntity="Gift" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Gift" positionX="-540" positionY="-402" width="128" height="148"/>
-        <element name="Photo" positionX="-162" positionY="-501" width="128" height="60"/>
+        <element name="Gift" positionX="-540" positionY="-402" width="128" height="150"/>
+        <element name="Photo" positionX="-162" positionY="-501" width="128" height="75"/>
         <element name="Shop" positionX="-540" positionY="36" width="128" height="75"/>
-        <element name="Type" positionX="-335" positionY="-87" width="128" height="60"/>
+        <element name="Type" positionX="-335" positionY="-87" width="128" height="75"/>
     </elements>
 </model>
