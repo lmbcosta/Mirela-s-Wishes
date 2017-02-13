@@ -15,11 +15,13 @@ extension Gift {
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Gift> {
         return NSFetchRequest<Gift>(entityName: "Gift");
     }
-
+    
+    @NSManaged public var created: NSDate?
     @NSManaged public var title: String?
     @NSManaged public var price: Double
     @NSManaged public var details: String?
     @NSManaged public var importance: Int32
+    @NSManaged public var sentSMS: Bool
     @NSManaged public var photo: Photo?
     @NSManaged public var shop: Shop?
     @NSManaged public var type: Type?

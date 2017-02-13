@@ -20,7 +20,8 @@ class GiftCell: UITableViewCell {
         giftName.text = gift.title!
         giftPrice.text = String(gift.price)
         details.text = gift.details
-        
-        // TODO Update image
+        if let image = gift.photo?.photo as? UIImage {
+            self.photo.image = image
+        }
     }
 }

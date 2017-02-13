@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490DE7201E4CAB1F004EB4B6 /* MessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490DE71F1E4CAB1F004EB4B6 /* MessageController.swift */; };
 		498BB6351E4B939600EB097B /* GiftDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 498BB6341E4B939600EB097B /* GiftDetailsVC.swift */; };
 		499BB8341E4A81460033E3CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BB8331E4A81460033E3CB /* AppDelegate.swift */; };
 		499BB8361E4A81460033E3CB /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499BB8351E4A81460033E3CB /* MainVC.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		490DE71F1E4CAB1F004EB4B6 /* MessageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageController.swift; sourceTree = "<group>"; };
 		498BB6341E4B939600EB097B /* GiftDetailsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftDetailsVC.swift; sourceTree = "<group>"; };
 		499BB8301E4A81460033E3CB /* Mirela's Wishes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mirela's Wishes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		499BB8331E4A81460033E3CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				499BB84F1E4A8E810033E3CB /* Shop+CoreDataClass.swift */,
 				499BB8511E4A8E810033E3CB /* Photo+CoreDataClass.swift */,
 				499BB8531E4A8E810033E3CB /* Type+CoreDataClass.swift */,
+				490DE71F1E4CAB1F004EB4B6 /* MessageController.swift */,
 				499BB85D1E4A8EA30033E3CB /* Generated */,
 			);
 			name = Model;
@@ -211,6 +214,7 @@
 				499BB8341E4A81460033E3CB /* AppDelegate.swift in Sources */,
 				499BB8581E4A8E810033E3CB /* Shop+CoreDataProperties.swift in Sources */,
 				499BB8591E4A8E810033E3CB /* Photo+CoreDataClass.swift in Sources */,
+				490DE7201E4CAB1F004EB4B6 /* MessageController.swift in Sources */,
 				499BB84C1E4A88200033E3CB /* GiftCell.swift in Sources */,
 				499BB85C1E4A8E810033E3CB /* Type+CoreDataProperties.swift in Sources */,
 				499BB85A1E4A8E810033E3CB /* Photo+CoreDataProperties.swift in Sources */,

@@ -12,4 +12,9 @@ import CoreData
 
 public class Gift: NSManagedObject {
     
+    public override func awakeFromInsert() {
+        super.awakeFromInsert()
+        self.created = NSDate()
+    }
+    
 }

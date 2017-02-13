@@ -12,6 +12,7 @@ import CoreData
 class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentControl: UISegmentedControl!
     
     // Local vars
     var fetchedController: NSFetchedResultsController<Gift>!
@@ -26,6 +27,10 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
             navBar.titleTextAttributes = [NSForegroundColorAttributeName: color]
         }
         
+        if let topItem = self.navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        }
+        
         // Running testData func
         //testData()
         // attempt to fetch
@@ -37,15 +42,31 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         // Request
         let fetchRequest: NSFetchRequest<Gift> = Gift.fetchRequest()
         // sortDescriptors
-        let titleDescriptor = NSSortDescriptor(key: "title", ascending: false)
-        // TODO: 1.1The rest of sort descriptors
+        var sortDescriptor: NSSortDescriptor!
         
-        fetchRequest.sortDescriptors = [titleDescriptor]
+        // switch in segments
+        let index = segmentControl.selectedSegmentIndex
+        
+        switch index {
+        case 0:
+            sortDescriptor = NSSortDescriptor(key: "created", ascending: false)
+            
+        case 1:
+            sortDescriptor = NSSortDescriptor(key: "price", ascending: false)
+            
+        case 2:
+            sortDescriptor = NSSortDescriptor(key: "importance", ascending: false)
+            
+        default:
+            break
+        }
+        
+        fetchRequest.sortDescriptors = [sortDescriptor]
         
         // Associate the controller
-        let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context,
-                                                    sectionNameKeyPath: nil, cacheName: nil)
-        controller.delegate = self
+        let controller = NSFetchedResultsController(fetchRequest: fetchRequest,
+            managedObjectContext: context,sectionNameKeyPath: nil, cacheName: nil)
+                controller.delegate = self
         self.fetchedController = controller
         
         // perform fetch
@@ -166,26 +187,41 @@ class MainVC: UIViewController, UITableViewDelegate, UITableViewDataSource, NSFe
         }
     }
     
+    /* 
+    Actions
+    */
+    @IBAction func segmentTapped(_ sender: Any) {
+        
+        // fetch
+        tryToFetch()
+        tableView.reloadData()
+    }
     
-    
-
     
     // Function to test data
     func testData() {
+        
         let gift1 = Gift(context: context)
         gift1.title = "Mala Guess"
         gift1.price = 150
         gift1.details = "Preciso uma de cor azul"
+        gift1.importance = 5
+        gift1.sentSMS = false
         
         let gift2 = Gift(context: context)
         gift2.title = "iMac 27\""
         gift2.price = 2400
         gift2.details = "O meu desktop favorito. fica a matar na minha secretária"
+        gift2.importance = 3
+        gift2.sentSMS = true
+        
         
         let gift3 = Gift(context: context)
         gift3.title = "Nike Running Pink"
         gift3.price = 100
         gift3.details = "Preciso de uns novos porque não gosto dos que o meu namorado me ofereceu"
+        gift1.importance = 9
+        gift1.sentSMS = true
         
         ad.saveContext()
     }
